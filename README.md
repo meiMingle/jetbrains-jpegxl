@@ -1,10 +1,10 @@
-# jetbrains-qoi
+# jetbrains-jpegxl
 
-Allows viewing images in the [QOI](https://qoiformat.org/) format in the Jetbrains' IDE.
+Allows viewing images in the [JPEG XL](https://jpeg.org/jpegxl/) format in the Jetbrains' IDE.
 
-[![Version](https://img.shields.io/jetbrains/plugin/v/19352-qoi-support)](https://plugins.jetbrains.com/plugin/19352-qoi-support)
-[![Rating](https://img.shields.io/jetbrains/plugin/r/stars/19352-qoi-support)](https://plugins.jetbrains.com/plugin/19352-qoi-support)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/19352-qoi-support)](https://plugins.jetbrains.com/plugin/19352-qoi-support)
+##Power by the following projects
+![jetbrains-qoi](https://github.com/xiaozhuai/jetbrains-qoi)
+![jxlatte](https://github.com/Traneptora/jxlatte)
 
 ![preview.png](preview.png)
 

@@ -3,17 +3,17 @@ plugins {
     id("org.jetbrains.intellij") version "1.5.2"
 }
 
-group = "io.github.xiaozhuai"
+group = "com.github.meimingle"
 version = "1.1.3"
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 intellij {
     version.set("2021.2")
     type.set("IC")
-
     plugins.set(listOf())
 }
 
@@ -40,6 +40,4 @@ tasks {
 }
 
 dependencies {
-    // !!! Do not forget to change QOIMetadata.QOI_LIBRARY_VERSION when upgrade qoi-java !!!
-    implementation("me.saharnooby:qoi-java:1.2.1")
 }

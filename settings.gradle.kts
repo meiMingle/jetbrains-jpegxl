@@ -1,1 +1,1 @@
-rootProject.name = "jetbrains-qoi"
+rootProject.name = "jetbrains-jxl"
