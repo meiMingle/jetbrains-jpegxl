@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.meimingle"
-version = "1.1.3"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -25,7 +25,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("212")
-        untilBuild.set("232.*")
+        untilBuild.set("")
     }
 
     signPlugin {
