@@ -2,17 +2,10 @@
     <id>com.github.meimingle.jetbrains-jpegxl</id>
     <name>JPEG XL Support</name>
     <vendor email="766781886@qq.com" url="https://github.com/meimingle">meiMingle</vendor>
-    <description><![CDATA[
-    <p>Allows viewing images in the <a href="https://jpeg.org/jpegxl/">JPEG XL</a> format in the IDE.</p>
-    ]]></description>
-    <change-notes><![CDATA[
-    <ul>
-        <li><b>1.0.0</b> Display images in JPEG XL format (.jxl suffix) </li>
-    </ul>
-    ]]></change-notes>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Image" extensions="jxl"/>
-        <applicationService serviceImplementation="com.github.meimingle.register.MetadataRegistrar" preload="true"/>
+<!--        <applicationService serviceImplementation="com.github.meimingle.listener.AppLoadListener" preload="true"/>-->
+        <ApplicationLoadListener implementation="com.github.meimingle.listener.AppLoadListener"/>
     </extensions>
 </idea-plugin>
