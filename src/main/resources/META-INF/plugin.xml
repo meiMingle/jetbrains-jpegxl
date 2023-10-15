@@ -1,6 +1,6 @@
 <idea-plugin require-restart="true">
     <id>com.github.meimingle.jetbrains-jpegxl</id>
-    <name>JPEG XL Support</name>
+    <name>JPEGXL Support</name>
     <vendor email="766781886@qq.com" url="https://github.com/meimingle">meiMingle</vendor>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">

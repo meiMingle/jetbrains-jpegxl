@@ -5,7 +5,7 @@
 <!-- Plugin description -->
 ## Introduction
 
-Allows viewing images in the [JPEG XL](https://jpeg.org/jpegxl/) format in the Jetbrains' IDE.
+Allows viewing images in the [JPEGXL](https://jpeg.org/jpegxl/) format in the Jetbrains' IDE.
 
 ## Power by the following projects
 
