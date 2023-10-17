@@ -1,11 +1,14 @@
-<idea-plugin require-restart="true">
+<idea-plugin >
     <id>com.github.meimingle.jetbrains-jpegxl</id>
     <name>JPEGXL Support</name>
     <vendor email="766781886@qq.com" url="https://github.com/meimingle">meiMingle</vendor>
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.platform.images</depends>
     <extensions defaultExtensionNs="com.intellij">
         <fileType name="Image" extensions="jxl"/>
-<!--        <applicationService serviceImplementation="com.github.meimingle.listener.AppLoadListener" preload="true"/>-->
-        <ApplicationLoadListener implementation="com.github.meimingle.listener.AppLoadListener"/>
     </extensions>
+    <applicationListeners>
+        <listener class="com.github.meimingle.register.JxlSpiRegistrar" topic="com.intellij.ide.AppLifecycleListener"/>
+        <listener class="com.github.meimingle.register.JxlSpiRegistrar" topic="com.intellij.ide.plugins.DynamicPluginListener"/>
+    </applicationListeners>
 </idea-plugin>

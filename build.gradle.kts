@@ -24,11 +24,13 @@ repositories {
     maven { url = uri("https://oss.sonatype.org/content/groups/public") }
     maven { url = uri("https://www.jetbrains.com/intellij-repository/releases") }
     maven { url = uri("https://cache-redirector.jetbrains.com/intellij-dependencies") }
+    maven { url = uri("https://jitpack.io") }
 }
+
 
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
 dependencies {
-//    implementation(libs.annotations)
+    implementation("com.github.meiMingle:jxlatte:main-mavenize-SNAPSHOT")
 }
 
 // Set the JVM language level used to build the project. Use Java 11 for 2020.3+, and Java 17 for 2022.2+.
