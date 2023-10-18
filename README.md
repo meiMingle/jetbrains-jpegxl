@@ -15,7 +15,12 @@ Allows viewing images in the [JPEGXL](https://jpeg.org/jpegxl/) format in the Je
 
 <!-- Plugin description end -->
 
-![preview.png](preview.png)
+![preview1.png](jxl_test_images_preview/2021-08_monad.jxl.preview.png)
+![preview2.png](jxl_test_images_preview/2021-08_wwwwwwww.jxl.preview.png)
+![preview3.png](jxl_test_images_preview/2022-11-block_nebula.jxl.preview.png)
+![preview4.png](jxl_test_images_preview/2022-11-iceberg.jxl.preview.png)
+![preview5.png](jxl_test_images_preview/2022-11-jxl.jxl.preview.png)
+![preview6.png](jxl_test_images_preview/anim_jxl_logo.jxl.preview.png)
 
 ## Installation
 
