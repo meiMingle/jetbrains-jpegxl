@@ -2,8 +2,11 @@
 
 # jetbrains-jpegxl Changelog
 
-
 ## [Unreleased]
+### Fixed
+- Fixed an issue where some correct images could not be recognized
+
+## [0.0.2]
 ### Removed
 - Remove redundant files to reduce package size
 

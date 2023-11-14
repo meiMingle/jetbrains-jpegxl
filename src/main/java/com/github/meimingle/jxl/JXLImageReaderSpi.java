@@ -24,6 +24,8 @@ import java.util.Locale;
 public class JXLImageReaderSpi extends ImageReaderSpi {
 
     private static final int MAX_FILE_SIZE = 0x06400000;  // 100 MiBs
+    final static int[] JPEGXL = new int[]{0xff, 0x0a};
+    final static int[] JPEGXL2 = new int[]{0x00, 0x00, 0x00, 0x0C, 0x4A, 0x58, 0x4C, 0x20, 0x0D, 0x0A, 0x87, 0x0A};
 
     public JXLImageReaderSpi() {
         vendorName = JXLMetadata.JXL_VENDOR;
@@ -41,12 +43,23 @@ public class JXLImageReaderSpi extends ImageReaderSpi {
             return false;
         } else {
             final ImageInputStream stream = (ImageInputStream) source;
-            byte[] b = new byte[2];
+            byte[] b = new byte[12];
             stream.mark();
             stream.readFully(b);
             stream.reset();
-            return b[0] == -1 && b[1] == 10;
+            return equalArrays(b, JPEGXL) || equalArrays(b, JPEGXL2);
         }
+    }
+    private static boolean equalArrays(byte[] a, int[] target) {
+        if (a == null || target == null || target.length > a.length){
+            return false;
+        }
+        for (int i=0; i < target.length; i++) {
+            if ((a[i] & 0xff) != (target[i] & 0xff)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
