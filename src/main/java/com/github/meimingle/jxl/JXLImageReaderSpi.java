@@ -6,6 +6,7 @@ import com.thebombzen.jxlatte.JXLImage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.ImageTypeSpecifier;
@@ -24,8 +25,8 @@ import java.util.Locale;
 public class JXLImageReaderSpi extends ImageReaderSpi {
 
     private static final int MAX_FILE_SIZE = 0x06400000;  // 100 MiBs
-    final static int[] JPEGXL = new int[]{0xff, 0x0a};
-    final static int[] JPEGXL2 = new int[]{0x00, 0x00, 0x00, 0x0C, 0x4A, 0x58, 0x4C, 0x20, 0x0D, 0x0A, 0x87, 0x0A};
+    final static byte[] JPEGXL = new byte[]{(byte)0xff, 0x0a};
+    final static byte[] JPEGXL2 = new byte[]{0x00, 0x00, 0x00, 0x0C, 'J', 'X', 'L', ' ', 0x0D, 0x0A, (byte)0x87, 0x0A};
 
     public JXLImageReaderSpi() {
         vendorName = JXLMetadata.JXL_VENDOR;
@@ -38,24 +39,31 @@ public class JXLImageReaderSpi extends ImageReaderSpi {
     }
 
     @Override
-    public boolean canDecodeInput(@NotNull final Object source) throws IOException {
+    public boolean canDecodeInput(@NotNull Object source) throws IOException {
         if (!(source instanceof ImageInputStream)) {// 80
-            return false;
-        } else {
+            source = ImageIO.createImageInputStream(source);
+        }
             final ImageInputStream stream = (ImageInputStream) source;
             byte[] b = new byte[12];
-            stream.mark();
-            stream.readFully(b);
-            stream.reset();
-            return equalArrays(b, JPEGXL) || equalArrays(b, JPEGXL2);
-        }
+            try{
+                stream.mark();
+                stream.readFully(b,0,2);
+                if (equalArrays(b, JPEGXL)) {
+                    return true;
+                }
+                stream.readFully(b,2,10);
+                return equalArrays(b, JPEGXL2);
+            }finally {
+                stream.reset();
+            }
     }
-    private static boolean equalArrays(byte[] a, int[] target) {
-        if (a == null || target == null || target.length > a.length){
+
+    private static boolean equalArrays(byte[] a, byte[] target) {
+        if (a == null || target == null || target.length > a.length) {
             return false;
         }
-        for (int i=0; i < target.length; i++) {
-            if ((a[i] & 0xff) != (target[i] & 0xff)) {
+        for (int i = 0; i < target.length; i++) {
+            if (a[i] != target[i]) {
                 return false;
             }
         }
