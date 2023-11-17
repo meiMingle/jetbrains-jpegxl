@@ -6,6 +6,10 @@
 ## Introduction
 
 Allows viewing images in the [JPEGXL](https://jpeg.org/jpegxl/) format in the Jetbrains' IDE.
+Tips:Due to this problem [IDEA-332030](https://youtrack.jetbrains.com/issue/IDEA-332030/Plugin-fileType-extensions-will-disappear-after-restart-if-the-plugin-was-uninstalled-once-before), if you have uninstalled this plug-in, reinstalled and restarted the IDE,
+the function of this plug-in may be invalid. 
+The solution is: find this file and remove the following entries.
+`%AppData%\JetBrains\IntelliJIdea2023.3\options\filetypes.xml` -> `<removed_mapping ext="jxl" approved="true" type="Image" />`
 
 ## Power by the following projects
 
