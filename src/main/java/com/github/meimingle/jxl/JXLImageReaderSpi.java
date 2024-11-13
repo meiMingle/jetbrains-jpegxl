@@ -196,7 +196,7 @@ public class JXLImageReaderSpi extends ImageReaderSpi {
                             System.arraycopy(buffer[c].getIntBuffer()[y], 0, dataArray[c], y * jxlImage.getWidth(), jxlImage.getWidth());
                         }
                     }
-                    yield new DataBufferInt(dataArray, 0);
+                    yield new DataBufferInt(dataArray, jxlImage.getWidth() * jxlImage.getHeight());
                 }
                 case ImageBuffer.TYPE_FLOAT -> {
                     final float[][] dataArray = new float[buffer.length][jxlImage.getWidth() * jxlImage.getHeight()];
@@ -205,7 +205,7 @@ public class JXLImageReaderSpi extends ImageReaderSpi {
                             System.arraycopy(buffer[c].getFloatBuffer()[y], 0, dataArray[c], y * jxlImage.getWidth(), jxlImage.getWidth());
                         }
                     }
-                    yield new DataBufferFloat(dataArray, 0);
+                    yield new DataBufferFloat(dataArray, jxlImage.getWidth() * jxlImage.getHeight());
                 }
                 default -> throw new IllegalStateException("Unexpected value: " + type);
             };
